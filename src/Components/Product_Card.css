@@ -1,0 +1,38 @@
+.card {
+    background: #fdf0ea;
+    border: 1px solid #eee;
+    box-shadow: 2px 4px 16px rgba(0,0,0,.12);
+    border-radius: 4px;
+    /* padding: 16px; */
+    margin: 16px;
+    width: 300px;
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+    color: #123C69;
+}
+
+.image{
+    margin: auto;
+    height: 50%;
+    width: 80%;
+    /* border: 0.5px solid black; */
+    text-align: center;
+}
+
+.image img{
+    max-width: 100%;
+    max-height: 100%;
+    /* height: auto; */
+}
+
+.price{
+    text-align: end;
+}
+
+p{
+    margin: 8px 12px;
+}
