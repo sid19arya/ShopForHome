@@ -31,6 +31,7 @@ function Wishlist(props){
             <div className='Main'>
                         {items.map(item => {
                             return <Cart_Item
+                                wishlist_flag={1}
                                 img={item.imageurl}
                                 title={item.title} 
                                 price={item.price}

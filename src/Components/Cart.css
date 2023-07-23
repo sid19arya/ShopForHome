@@ -1,0 +1,47 @@
+.cart-body{
+    display: flex;
+    
+}
+
+.cart-board{
+    flex: 8;
+    border: 0.5px solid black;
+    max-height: 200vh;
+    /* height: 100%; */
+    
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 3;
+    margin:16px 32px;
+}
+
+.checkout{
+    flex: 1;
+    /* border: 0.2px solid black; */
+    margin:16px 32px;
+    display: flex;
+}
+
+.sales-report{
+    width: 95%;
+    height: 95%;
+    background: white;
+    margin: auto;
+
+    border: 1px solid #eee;
+    box-shadow: 2px 4px 16px rgba(0,0,0,.12);
+    border-radius: 4px;
+    padding: 8px 16px;
+}
+
+.sales-report p{
+    display: inline;
+}
+.sales-report div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+

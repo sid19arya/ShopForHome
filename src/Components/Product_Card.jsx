@@ -18,7 +18,7 @@ function Product_Card(props){
     const addToCart = async (event) => {
         event.preventDefault();
         if (user){
-            const result = await addProdtoCart(user.username, user.access_token, props.title);
+            const result = await addProdtoCart(user.username, user.access_token, props.title, 1);
             console.log(result);
         } else {
             alert("Please log in to add products to your cart");
@@ -42,7 +42,7 @@ function Product_Card(props){
                     Some Description for product
                 </p>
                 <p className='price'>
-                    {props.price}
+                    ${props.price}
                 </p>
                 <div className='icons'>
                     <i className="fa-solid fa-heart fa-lg" onClick={addToWishlist}>

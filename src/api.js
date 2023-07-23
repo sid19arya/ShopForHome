@@ -84,7 +84,7 @@ async function getWishlist(given_username, access_token){
     return results;
 }
 
-async function addProdtoCart(given_username, access_token, product_title){
+async function addProdtoCart(given_username, access_token, product_title, val){
     const raw_results = await fetch(`http://localhost:3020/user/${given_username}/cart`, {
             method: "POST",
             headers: {
@@ -92,8 +92,9 @@ async function addProdtoCart(given_username, access_token, product_title){
                 'Authorization':  `Bearer ${access_token}`
             },
             body: JSON.stringify({
-                title: product_title,
-                quantity: 1
+                title: product_title,       
+                quantity: val,
+                setquantity: null
             })
         })
     const results = raw_results.json();
