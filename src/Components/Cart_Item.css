@@ -36,37 +36,3 @@
 p{
     margin: 8px 12px;
 }
-
-.icons{
-    display: flex;
-    justify-content: space-around;
-    margin: 12px;
-}
-
-i{
-    transition: color 0.2s ease-out;
-}
-i:hover{
-    color: red;
-}
-
-.tooltip{
-    visibility: hidden;
-
-    font-size: 12px;
-    position: absolute;
-    z-index: 1;
-}
-
-/* .fa-heart:hover .tooltip{
-    visibility: visible;
-}
-.fa-cart-shopping:hover .tooltip{
-    visibility: visible;
-} */
-
-/* i:hover .tooltip{
-    visibility: visible;
-} */
-
-

@@ -27,12 +27,14 @@
     padding: 8px;
     border-radius: 10px;
 
-    display: inline;
 }
+
 
 .search-bar{
     border: none;
     font-size: large;
+    display: inline;
+    border: 0.5px solid #123C69;
 }
 
 .Product_Zone{

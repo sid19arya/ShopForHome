@@ -1,19 +1,52 @@
+import { useEffect, useState } from 'react';
 import './Home.css'
 import Product_Card from './Product_Card';
+import { getProducts } from '../api';
 
-function Home(){
-    let products = [
+function Home(props){
+    const [products, setProducts] = useState([]);
+    const [searchVal, setSearchVal] = useState('');
+    const [filteredList, setFilteredList] = useState([]);
+
+    const updateSearchParam = (event) => {
+        event.preventDefault();
+        setSearchVal(event.target.value);
+    }
+
+    useEffect(() => {
+        const new_List = products.filter(prod => {
+            return prod.title.includes(searchVal);
+        })
+        setFilteredList(new_List);
+    }, [searchVal, products])
+
+    const user = props.user;
+    
+    const products_offline = [
         {
-            img: 'https://images.pexels.com/photos/3097112/pexels-photo-3097112.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+            img: '',
             title: "PRODUCT 1",
             price: "$12"
         }, 
         {
-            img: 'https://images.pexels.com/photos/1321290/pexels-photo-1321290.jpeg',
+            img: '',
             title: "Product2",
             price: "100"
         }
     ]
+
+    useEffect(() => {
+        async function x(){
+            const prods = await getProducts();
+            setProducts(prods.posts);
+        }
+
+        async function x_offline(){
+            setProducts(products_offline);
+        }
+        x();   
+        // x_offline();    
+    }, [])
 
     return (
         <div className='Home'>
@@ -21,7 +54,8 @@ function Home(){
                     <form className='search-form'>
                         <div className='search-form-wrapper'>
                             <i className="fa-solid fa-magnifying-glass fa-lg"></i>
-                            <input className='search-bar'></input>
+                            <input className='search-bar' onChange={updateSearchParam}></input>
+                            {/* <p>{searchVal}</p> */}
                         </div>
                         
                     </form>
@@ -29,12 +63,13 @@ function Home(){
             <div className='temp'></div> {/* potentially something here, maybe a categories layer*/ }
             <div className='Product_Zone'>
                 <div className='Top'>
-                    This is the top layer
+                    {user ? `${user.username} is currently logged in`: "No one has logged in yet"}
                 </div>
                 <div className='Main'>
-                        {products.map(product => {
+                        {filteredList.map(product => {
                             return <Product_Card 
-                                        img={product.img}
+                                        user={user}
+                                        img={product.imageurl}
                                         title={product.title} 
                                         price={product.price}>
                                     </Product_Card>
